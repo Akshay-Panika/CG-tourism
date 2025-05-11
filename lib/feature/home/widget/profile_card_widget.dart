@@ -1,0 +1,68 @@
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../../../core/costant/custom_color.dart';
+import '../../../core/widget/custom_container.dart';
+import '../../booking/screen/current_booking_creen.dart';
+
+
+class ProfileCardWidget extends StatelessWidget {
+  const ProfileCardWidget({super.key,});
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomContainer(
+      margin: EdgeInsets.all(0),
+      backgroundColor: Colors.white,
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            spacing: 10,
+            children: [
+              CircleAvatar(radius: 25,
+                backgroundColor: Colors.white,
+                backgroundImage: AssetImage('assets/image/Null_Profile.jpg'),
+               ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Akshay !', style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500),),
+                  Text('Good Morning'),
+                ],
+              ),
+            ],
+          ),
+
+          Row(
+            children: [
+              InkWell(
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CurrentBookingScreen(),)),
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: CustomColor.appColor, width: 0.5),
+                    borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: Row(
+                    spacing: 5,
+                    children: [
+                      Icon(Icons.directions_car, size: 16,),
+                      Text('My Booking', style: TextStyle(fontWeight: FontWeight.w600),)
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(width: 20,),
+
+              IconButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Scaffold())), icon: Icon(Icons.favorite_border,))
+            ],
+          )
+
+        ],
+      ),
+    );
+  }
+}
