@@ -59,7 +59,7 @@ class _DistrictsScreenState extends State<DistrictsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Place',showFavoriteIcon: true,),
+      appBar: CustomAppBar(title: 'District',showSearchIcon: true,),
 
       body: Column(
         children: [

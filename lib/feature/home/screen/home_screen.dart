@@ -37,19 +37,11 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+      _showServicePage
+          ? PlaceScreen(showServicePage: true,headline:  placesWithIcons[_selectedServiceIndex]['name'],):
+      Scaffold(
       appBar: CustomAppBar(
-          leading: _showServicePage ? Padding(
-            padding: const EdgeInsets.only(left: 15.0),
-            child: InkWell(
-              onTap: () {
-                setState(() {
-                  _showServicePage = false;
-                  _selectedServiceIndex = 0;
-                });
-              },
-              child:  Icon(Icons.dashboard, size: 25, color: CustomColor.greenColor,),),
-          ) : null,
         leadingWidth: !_showServicePage ?0:40,
 
           titleWidget: InkWell(
@@ -75,10 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
         showNotificationIcon: true,
         //showFavoriteIcon: true,
       ),
-
-      body: _showServicePage
-          ? PlaceScreen()
-          : CustomScrollView(
+      body: CustomScrollView(
         slivers: [
 
           /// Profile card
@@ -166,7 +155,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.zero,
                   margin: EdgeInsets.zero,
                   backgroundColor: Colors.white,
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Scaffold(),)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -175,7 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text('Your CG Tourism',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold, color: CustomColor.appColor),),
+                          Text('Your CG Tourism',style: textStyle18(context,fontWeight: FontWeight.bold, color: CustomColor.greenColor),),
                           SizedBox(height: 5,),
                           Text('Your friend are going to love us tool', style: TextStyle(fontSize: 14),),
                           SizedBox(height: 5,),

@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../core/costant/custom_color.dart';
-import '../../booking/screen/booking_screen.dart';
 import '../../districts/screen/districts_screen.dart';
+import '../../favorite/screen/favorite_screen.dart';
 import '../../home/screen/home_screen.dart';
 import '../../more/screen/more_screen.dart';
 
@@ -27,15 +27,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   final labels = const [
     'Home',
-    'Booking',
-    'Place',
+    'Favorite',
+    'District',
     'Menu',
   ];
 
 
   final List<Widget> _screens = const [
     HomeScreen(),
-    BookingScreen(),
+    FavoriteScreen(),
     DistrictsScreen(),
     MoreScreen(),
   ];

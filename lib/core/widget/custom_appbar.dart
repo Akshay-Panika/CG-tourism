@@ -1,3 +1,4 @@
+import 'package:cg_tourism/feature/search/screen/search_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +54,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
         if(showSearchIcon)
         IconButton(
-          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Scaffold(),)),
+          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SearchScreen(),)),
           icon: Icon(CupertinoIcons.search),
         ),
       ],

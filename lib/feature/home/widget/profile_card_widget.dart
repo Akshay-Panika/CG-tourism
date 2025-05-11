@@ -1,11 +1,12 @@
 
+import 'package:cg_tourism/core/costant/dimension.dart';
 import 'package:cg_tourism/core/costant/text_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../../core/costant/custom_color.dart';
 import '../../../core/widget/custom_container.dart';
-import '../../booking/screen/current_booking_creen.dart';
+import '../../favorite/screen/current_booking_creen.dart';
+import '../../favorite/screen/favorite_screen.dart';
 
 
 class ProfileCardWidget extends StatelessWidget {
@@ -56,9 +57,9 @@ class ProfileCardWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: 20,),
+             10.width,
 
-              IconButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Scaffold())), icon: Icon(Icons.favorite_border,))
+              // IconButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Scaffold())), icon: Icon(Icons.favorite_border,))
             ],
           )
 
