@@ -1,3 +1,5 @@
+import 'package:cg_tourism/core/costant/custom_color.dart';
+import 'package:cg_tourism/core/costant/text_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +31,7 @@ class SearchScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.close, color: Colors.black87),
+            icon:  Icon(Icons.close, color: CustomColor.iconColor),
             onPressed: () => Navigator.pop(context),
           ),
           SizedBox(width: 10,),
@@ -45,7 +47,7 @@ class SearchScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text('Recent Searches', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),),
-                    const Text('Clear', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.blueAccent),),
+                     Text('Clear', style: textStyle14(context,color: CustomColor.descriptionColor),),
                   ],
                 ),
               ),

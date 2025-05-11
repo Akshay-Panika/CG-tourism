@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cg_tourism/core/costant/custom_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -88,7 +89,7 @@ class _CustomHighlightServiceState extends State<CustomHighlightService> {
                   height: 5,
                   width: _current == index ? 24 : 10,
                   decoration: BoxDecoration(
-                    color: _current == index ? Colors.blueAccent : Colors.grey,
+                    color: _current == index ? CustomColor.greenColor : Colors.grey,
                     borderRadius: BorderRadius.circular(2),
                   ),
                 );

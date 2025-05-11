@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../feature/service/screen/servise_details_screen.dart';
-import 'custom_amount_text.dart';
+import '../../feature/service/screen/place_details_screen.dart';
 import 'custom_container.dart';
 import 'custom_favorite_button.dart';
 import 'custom_headline.dart';
@@ -49,7 +48,7 @@ class CustomServiceList extends StatelessWidget {
                             alignment: Alignment.topRight,
                             child: CustomFavoriteButton(),
                         ),
-                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ServiceDetailsScreen(),)),
+                        onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => PlaceDetailsScreen(),)),
                       ),
                     ),
 
@@ -59,8 +58,19 @@ class CustomServiceList extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text('Service Name', style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
-                          Text('Location Name', style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
+                          Text('Place Name', style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Location Name', style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
+                              Row(
+                                children: [
+                                  Icon(Icons.location_on_outlined,size: 14,),
+                                  Text('4.5 KM', style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500),),
+                                ],
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                     ),

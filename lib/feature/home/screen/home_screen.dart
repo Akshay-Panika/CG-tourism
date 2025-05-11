@@ -1,3 +1,4 @@
+import 'package:cg_tourism/core/costant/text_style.dart';
 import 'package:cg_tourism/feature/search/screen/search_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,8 @@ import '../../../core/widget/custom_headline.dart';
 import '../../../core/widget/custom_highlight_service.dart';
 import '../../../core/widget/custom_search_bar.dart';
 import '../../../core/widget/custom_service_list.dart';
-import '../../service/screen/service_screen.dart';
+import '../../location/widget/pic_location_dialog.dart';
+import '../../service/screen/place_screen.dart';
 import '../widget/profile_card_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,6 +25,16 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _showServicePage = false;
   int _selectedServiceIndex = 0;
 
+  final List<Map<String, dynamic>> placesWithIcons = [
+    {"name": "Temple", "icon": Icons.account_balance},
+    {"name": "Mountain", "icon": Icons.terrain},
+    {"name": "River", "icon": Icons.water},
+    {"name": "Palace", "icon": Icons.account_balance_outlined},
+    {"name": "Railway Station", "icon": Icons.train},
+    {"name": "Stadium", "icon": Icons.sports_soccer},
+    {"name": "Restaurant", "icon": Icons.restaurant},
+    {"name": "Forest", "icon": Icons.forest},
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,31 +48,36 @@ class _HomeScreenState extends State<HomeScreen> {
                   _selectedServiceIndex = 0;
                 });
               },
-              child:  Icon(Icons.dashboard, size: 25, color: CustomColor.appColor,),),
+              child:  Icon(Icons.dashboard, size: 25, color: CustomColor.greenColor,),),
           ) : null,
         leadingWidth: !_showServicePage ?0:40,
 
-          titleWidget: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children:  [
-              Text(_showServicePage ? 'Location Name':'CG Tourism', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600,),),
-              SizedBox(height: 2),
-              Text(
-                "Waidhan Singrauli Madhya Pradesh Pin- 486886",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey,
-                  overflow: TextOverflow.ellipsis,
+          titleWidget: InkWell(
+            onTap: () async{
+              _showServicePage? null :await picLocationDialog(context);
+            },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:  [
+                Text(_showServicePage ? placesWithIcons[_selectedServiceIndex]['name'] :'CG Tourism', style: textStyle16(context, color: CustomColor.greenColor),),
+                SizedBox(height: 2),
+                Text(
+                  "Waidhan Singrauli Madhya Pradesh Pin- 486886",
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         showNotificationIcon: true,
         //showFavoriteIcon: true,
       ),
 
       body: _showServicePage
-          ? ServiceScreen()
+          ? PlaceScreen()
           : CustomScrollView(
         slivers: [
 
@@ -89,13 +106,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 5),
 
                 /// Services
-                CustomHeadline(headline: 'Locations',),
+                CustomHeadline(headline: 'Place',),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: 8,
+                    itemCount: placesWithIcons.length,
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                       childAspectRatio: 1.11 / 1,
@@ -119,15 +136,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                              Expanded(child: CustomContainer(
                                backgroundColor: Colors.transparent,
-                              child: Icon(Icons.travel_explore, size: 30, color: CustomColor.appColor,),
+                              child: Icon(placesWithIcons[index]['icon'], size: 30, color: CustomColor.greenColor,),
                             )),
                             Padding(
                               padding: const EdgeInsets.all(10.0),
-                              child: Text('Location',
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              child: Text(placesWithIcons[index]['name'],
+                                style: textStyle12(context, color: CustomColor.greenColor),
                                 textAlign: TextAlign.center,
                               ),
                             ),

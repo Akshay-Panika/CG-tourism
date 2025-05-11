@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           elevation: 0,
           iconTheme: IconThemeData(color: CustomColor.iconColor),
           actionsIconTheme: IconThemeData(color: CustomColor.iconColor),
-          titleTextStyle:  TextStyle(fontSize: 16, color: CustomColor.appColor, fontWeight: FontWeight.w600,),
+          titleTextStyle:  TextStyle(fontSize: 16, color: CustomColor.greenColor, fontWeight: FontWeight.w600,),
         ),
 
       ),

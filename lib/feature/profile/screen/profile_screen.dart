@@ -72,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       bottom: 0, right: 0,
                       child: CircleAvatar(
                           backgroundColor: Colors.grey.shade50,
-                          child: Icon(Icons.edit, color: CustomColor.appColor,)))
+                          child: Icon(Icons.edit, color: CustomColor.greenColor,)))
                 ],
               ),
               SizedBox(height: 10),

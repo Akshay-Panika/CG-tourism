@@ -1,19 +1,22 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cg_tourism/core/costant/custom_color.dart';
 import 'package:cg_tourism/core/costant/dimension.dart';
+import 'package:cg_tourism/core/costant/text_style.dart';
 import 'package:cg_tourism/core/widget/custom_appbar.dart';
+import 'package:cg_tourism/core/widget/custom_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/widget/custom_container.dart';
 
-class ServiceDetailsScreen extends StatefulWidget {
-  const ServiceDetailsScreen({super.key});
+class PlaceDetailsScreen extends StatefulWidget {
+  const PlaceDetailsScreen({super.key});
 
   @override
-  State<ServiceDetailsScreen> createState() => _ServiceDetailsScreenState();
+  State<PlaceDetailsScreen> createState() => _PlaceDetailsScreenState();
 }
 
-class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
+class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
 
 
   int _current = 0;
@@ -28,7 +31,9 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
     return  Scaffold(
       appBar: CustomAppBar(title: 'Place Name', showBackButton: true,showFavoriteIcon: true,),
 
-      body: SafeArea(child: Column(
+      body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Column(
             children: [
@@ -59,7 +64,7 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
                 }).toList(),
               ),
 
-              50.height,
+              15.height,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(bannerData.length, (index) {
@@ -77,8 +82,57 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
               ),
             ],
           ),
+          
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Place Name', style: textStyle16(context,),),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Icon(Icons.star, color: Colors.amber, size: 14,),
+                        Text('4.5  (5.523, Reviews)', style: textStyle14(context,color: CustomColor.descriptionColor),),
+                      ],
+                    ),
+
+                  ],
+                ),
+                10.height,
+                Text('This is place description'*5, style: textStyle14(context,color: CustomColor.descriptionColor),textAlign: TextAlign.start,),
+
+                20.height,
+                _RowText(context, keys: 'Open : ', valve: '8 AM - 5 PM'),
+                _RowText(context, keys: 'Entry fee : ', valve: '₹ 20'),
+                _RowText(context, keys: 'Location : ', valve: '______'),
+
+              ],
+            ),
+          ),
+          Expanded(child: CustomContainer(backgroundColor: CustomColor.whiteColor,
+          networkImg: 'https://cdn.buttercms.com/aY8pmetzRZzc3fYxkOUg',)),
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CustomButton(text: 'Book Now',),
+          ),
+          20.height
         ],
       )),
     );
   }
+}
+
+
+Widget _RowText(BuildContext context,{String? keys, String? valve}){
+  return Row(
+    children: [
+      Text(keys!,style: textStyle14(context),),
+      Text(valve!,style: textStyle14(context, color: CustomColor.descriptionColor),),
+    ],
+  );
 }

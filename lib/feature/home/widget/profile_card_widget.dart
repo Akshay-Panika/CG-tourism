@@ -1,4 +1,5 @@
 
+import 'package:cg_tourism/core/costant/text_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -43,14 +44,14 @@ class ProfileCardWidget extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
                   decoration: BoxDecoration(
-                    border: Border.all(color: CustomColor.appColor, width: 0.5),
+                    border: Border.all(color: CustomColor.greenColor, width: 0.5),
                     borderRadius: BorderRadius.circular(10)
                   ),
                   child: Row(
                     spacing: 5,
                     children: [
-                      Icon(Icons.directions_car, size: 16,),
-                      Text('My Booking', style: TextStyle(fontWeight: FontWeight.w600),)
+                      Icon(Icons.directions_car, size: 16,color: CustomColor.greenColor,),
+                      Text('My Booking', style: textStyle12(context),)
                     ],
                   ),
                 ),

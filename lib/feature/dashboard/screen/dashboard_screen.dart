@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../core/costant/custom_color.dart';
 import '../../booking/screen/booking_screen.dart';
+import '../../districts/screen/districts_screen.dart';
 import '../../home/screen/home_screen.dart';
 import '../../more/screen/more_screen.dart';
-import '../../place/screen/place_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -36,7 +36,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   final List<Widget> _screens = const [
     HomeScreen(),
     BookingScreen(),
-    PlaceScreen(),
+    DistrictsScreen(),
     MoreScreen(),
   ];
   List<int> _history = [0];
@@ -73,7 +73,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               }
             },
             type: BottomNavigationBarType.fixed,
-            selectedItemColor: CustomColor.appColor,
+            selectedItemColor: CustomColor.greenColor,
             unselectedItemColor: CustomColor.iconColor,
             backgroundColor: Colors.white,
             elevation: 0.8,
