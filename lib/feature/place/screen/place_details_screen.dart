@@ -36,51 +36,71 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
+          Stack(
             children: [
-              CarouselSlider(
-                options: CarouselOptions(
-                  height: 200,
-                  autoPlay: true,
-                  enlargeCenterPage: true,
-                  viewportFraction: 1,
-                  autoPlayInterval: const Duration(seconds: 4),
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _current = index;
-                    });
-                  },
-                ),
-                items: bannerData.map((data) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return CustomContainer(
-                        width: double.infinity,
-                        assetsImg: data['image'],
-                        borderRadius: false,
-                        margin: EdgeInsets.zero,
-                      );
-                    },
-                  );
-                }).toList(),
-              ),
-
-              15.height,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(bannerData.length, (index) {
-                  return AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    margin: const EdgeInsets.symmetric(horizontal: 3),
-                    height: 5,
-                    width: _current == index ? 24 : 10,
-                    decoration: BoxDecoration(
-                      color: _current == index ? CustomColor.greenColor : Colors.grey,
-                      borderRadius: BorderRadius.circular(2),
+              Column(
+                children: [
+                  CarouselSlider(
+                    options: CarouselOptions(
+                      height: 200,
+                      autoPlay: true,
+                      enlargeCenterPage: true,
+                      viewportFraction: 1,
+                      autoPlayInterval: const Duration(seconds: 4),
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          _current = index;
+                        });
+                      },
                     ),
-                  );
-                }),
+                    items: bannerData.map((data) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return CustomContainer(
+                            width: double.infinity,
+                            assetsImg: data['image'],
+                            borderRadius: false,
+                            margin: EdgeInsets.zero,
+                          );
+                        },
+                      );
+                    }).toList(),
+                  ),
+
+                  15.height,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(bannerData.length, (index) {
+                      return AnimatedContainer(
+                        duration: const Duration(milliseconds: 300),
+                        margin: const EdgeInsets.symmetric(horizontal: 3),
+                        height: 5,
+                        width: _current == index ? 24 : 10,
+                        decoration: BoxDecoration(
+                          color: _current == index ? CustomColor.greenColor : Colors.grey,
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      );
+                    }),
+                  ),
+                ],
               ),
+              
+              Positioned(
+                bottom: 0,right: 0,
+                child: CustomContainer(
+                  backgroundColor: CustomColor.whiteColor,
+                    margin: EdgeInsets.symmetric(horizontal: 5),
+                    child: Row(
+                      children: [
+                        Icon(CupertinoIcons.play_rectangle_fill, color: CustomColor.greenColor, size: 16,),10.width,
+                        Text('Watch Video', style: textStyle14(context),),
+                      ],
+                    ),
+                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => Scaffold(appBar: CustomAppBar(showBackButton: true, title: 'Video',),),)),
+                ),
+                
+              )
             ],
           ),
           
