@@ -11,19 +11,19 @@ import '../../../core/widget/custom_highlight_service.dart';
 import '../../../core/widget/custom_search_bar.dart';
 import '../../../core/widget/custom_service_list.dart';
 import '../../location/widget/pic_location_dialog.dart';
-import '../../service/screen/place_screen.dart';
+import '../../place/screen/place_screen.dart';
 import '../widget/profile_card_widget.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final String placeName;
+  final Function(bool, String) onToggle;
+  const HomeScreen({super.key, required this.onToggle, required this.placeName});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  bool _showServicePage = false;
-  int _selectedServiceIndex = 0;
 
   final List<Map<String, dynamic>> placesWithIcons = [
     {"name": "Temple", "icon": Icons.account_balance},
@@ -38,20 +38,16 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return
-      _showServicePage
-          ? PlaceScreen(showServicePage: true,headline:  placesWithIcons[_selectedServiceIndex]['name'],):
       Scaffold(
       appBar: CustomAppBar(
-        leadingWidth: !_showServicePage ?0:40,
-
           titleWidget: InkWell(
             onTap: () async{
-              _showServicePage? null :await picLocationDialog(context);
+             picLocationDialog(context);
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children:  [
-                Text(_showServicePage ? placesWithIcons[_selectedServiceIndex]['name'] :'CG Tourism', style: textStyle16(context, color: CustomColor.greenColor),),
+                Text('CG Tourism', style: textStyle16(context, color: CustomColor.greenColor),),
                 SizedBox(height: 2),
                 Text(
                   "Waidhan Singrauli Madhya Pradesh Pin- 486886",
@@ -112,8 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       return CustomContainer(
                         onTap: () {
                           setState(() {
-                            _selectedServiceIndex = index;
-                            _showServicePage = true;
+                            widget.onToggle(false,placesWithIcons[index]['name']);
                           });
                         },
                         padding: EdgeInsets.zero,

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../feature/service/screen/place_details_screen.dart';
+import '../../feature/place/screen/place_details_screen.dart';
 import 'custom_container.dart';
 import 'custom_favorite_button.dart';
 import 'custom_headline.dart';

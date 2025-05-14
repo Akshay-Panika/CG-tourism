@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import '../../../core/costant/custom_color.dart';
 import '../../../core/widget/custom_container.dart';
 import '../../../core/widget/custom_headline.dart';
-import '../../service/screen/place_subcategory_screen.dart';
+import '../../place/screen/place_subcategory_screen.dart';
 
 class DistrictsScreen extends StatefulWidget {
   const DistrictsScreen({super.key});

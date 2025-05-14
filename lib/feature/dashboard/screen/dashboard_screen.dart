@@ -5,6 +5,7 @@ import '../../../core/costant/custom_color.dart';
 import '../../districts/screen/districts_screen.dart';
 import '../../favorite/screen/favorite_screen.dart';
 import '../../home/screen/home_screen.dart';
+import '../../home/screen/main_home_screen.dart';
 import '../../more/screen/more_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   int _selectedIndex = 0;
   final icons = const [
     Icons.home_outlined,
-    Icons.bookmark_outline,
+    Icons.favorite_border,
     Icons.location_on_outlined,
     CupertinoIcons.profile_circled,
   ];
@@ -34,7 +35,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
 
   final List<Widget> _screens = const [
-    HomeScreen(),
+    MainHomeScreen(),
     FavoriteScreen(),
     DistrictsScreen(),
     MoreScreen(),

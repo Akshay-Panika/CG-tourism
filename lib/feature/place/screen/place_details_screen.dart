@@ -4,6 +4,7 @@ import 'package:cg_tourism/core/costant/dimension.dart';
 import 'package:cg_tourism/core/costant/text_style.dart';
 import 'package:cg_tourism/core/widget/custom_appbar.dart';
 import 'package:cg_tourism/core/widget/custom_button.dart';
+import 'package:cg_tourism/feature/favorite/screen/current_booking_creen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -74,7 +75,7 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
                     height: 5,
                     width: _current == index ? 24 : 10,
                     decoration: BoxDecoration(
-                      color: _current == index ? Colors.blueAccent : Colors.grey,
+                      color: _current == index ? CustomColor.greenColor : Colors.grey,
                       borderRadius: BorderRadius.circular(2),
                     ),
                   );
@@ -118,7 +119,9 @@ class _PlaceDetailsScreenState extends State<PlaceDetailsScreen> {
 
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: CustomButton(text: 'Book Now',),
+            child: CustomButton(text: 'Book Now',
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CurrentBookingScreen(),)),
+            ),
           ),
           20.height
         ],

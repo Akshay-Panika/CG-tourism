@@ -5,7 +5,7 @@ import 'package:cg_tourism/core/costant/text_style.dart';
 import 'package:cg_tourism/core/widget/custom_appbar.dart';
 import 'package:cg_tourism/core/widget/custom_container.dart';
 import 'package:cg_tourism/core/widget/custom_favorite_button.dart';
-import 'package:cg_tourism/feature/service/screen/place_details_screen.dart';
+import 'package:cg_tourism/feature/place/screen/place_details_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
