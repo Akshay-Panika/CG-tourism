@@ -34,6 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
     {"name": "Stadium", "icon": Icons.sports_soccer},
     {"name": "Restaurant", "icon": Icons.restaurant},
     {"name": "Forest", "icon": Icons.forest},
+    {"name": "Market", "icon": Icons.store},
+
   ];
   @override
   Widget build(BuildContext context) {

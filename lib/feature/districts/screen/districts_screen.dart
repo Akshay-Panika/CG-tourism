@@ -80,7 +80,7 @@ class _DistrictsScreenState extends State<DistrictsScreen> {
                   padding: EdgeInsets.zero,
                   margin: EdgeInsets.zero,
                   backgroundColor: Colors.white,
-                  onTap: () => Navigator.push(context,  MaterialPageRoute(builder: (context) => PlaceSubcategoryScreen(),)),
+                  onTap: () => Navigator.push(context,  MaterialPageRoute(builder: (context) => PlaceSubcategoryScreen(districtName: chhattisgarhDistrictsWithIcons[index]['name'],),)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,

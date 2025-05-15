@@ -89,8 +89,16 @@ class _PlaceScreenState extends State<PlaceScreen> {
                            return CustomContainer(
                              borderRadius: false,
                              width: double.infinity,
-                             assetsImg: data['image'],
+                             // assetsImg: data['image'],
                              margin: EdgeInsets.zero,
+                             child: Column(
+                               mainAxisAlignment: MainAxisAlignment.center,
+                               crossAxisAlignment: CrossAxisAlignment.center,
+                               children: [
+                                 Text('${widget.placeName}!', style: textStyle18(context, color: CustomColor.greenColor),),
+                                 Text('Related Banner', style: textStyle12(context),),
+                               ],
+                             ),
                            );
                          },
                        );

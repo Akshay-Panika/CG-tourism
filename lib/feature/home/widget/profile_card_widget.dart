@@ -32,7 +32,8 @@ class ProfileCardWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('Akshay !', style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500),),
-                  Text('Good Morning'),
+                  Text('Good Morning', style: textStyle12(context, color: CustomColor.descriptionColor),),
+                  Text('Welcome to Waidhan', style: textStyle12(context, color: CustomColor.descriptionColor),),
                 ],
               ),
             ],
